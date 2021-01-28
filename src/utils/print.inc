@@ -6,11 +6,11 @@
 
 
 ;---------------------------------
-;Char table
+; Char table
 .include "utils\chars.inc"
 
 ;---------------------------------
-;Display initialization
+; Display initialization
 displayInit:
 	LDI	R16, 0xB7
 	STS	LCDCRB, R16
@@ -23,10 +23,10 @@ displayInit:
 	RET
 
 ;---------------------------------
-;Show char on display
+; Show char on display
 ;
-;R16 char, R17 position on display
-;Stores and refreshes the registers
+; R16 char, R17 position on display
+; Stores and refreshes the registers
 showChar:
 	PUSH	R0
 	PUSH	R1
@@ -48,22 +48,22 @@ showChar:
 	JMP	prep
 
 ;---------------------------------
-;Undefined symbol
+; Undefined symbol
 ;
-;Activates all segments on display
+; Activates all segments on display
 undef:
 	LDI	R16, '`'
 	JMP	prep
 
 ;---------------------------------
-;Space symbol " "
+; Space symbol " "
 ;
-;Using undefined comma instead of space symbol
+; Using undefined comma instead of space symbol
 space:
 	LDI	R16, ','
 
 ;---------------------------------
-;Prepare for showing
+; Prepare for showing
 prep:
 	SUBI	R16, '*'			; Convert symbol to char table index
 	LSL	R16
@@ -85,7 +85,7 @@ prep:
 	SWAP 	R16
 
 ;---------------------------------
-;Show prepared char
+; Show prepared char
 show:
 	LPM	R0, Z+
 	SBRC	R18, 0				; Skip swap if char is even
