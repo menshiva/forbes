@@ -107,7 +107,7 @@ wait:
 	CPI 	pressedButton, 1
 	; If center button is pressed
 	BRNE 	centerBtnNotPressed
-	; If buttonLocker == 0 then buttonLocker = 1 and displayCharPos -= 1 to set next roll
+	; If buttonLocker == 0 then buttonLocker = 1 and displayCharPos -= 1 to set next reel
 	; Else continue loop
 	CPI 	buttonLocker, 0
 	BRNE 	endCheckButton
@@ -298,7 +298,7 @@ print_loser:
 	RET
 
 ;---------------------------------
-; Print rolls initial values
+; Print reels initial values
 ; (0 0 0)
 forbes_diplay_init:
 	LDI 	displayCharPos, 4
