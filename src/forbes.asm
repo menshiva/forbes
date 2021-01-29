@@ -5,6 +5,8 @@
 ;************************************************************************
 
 
+.cseg
+
 ;---------------------------------
 ; Definition file for ATmega169
 .include "m169def.inc"
@@ -13,8 +15,6 @@
 ; Display workflow
 .org 0x1000
 .include "utils\print.inc"
-
-.cseg
 
 .def displayChar 	= R16	; Stores char to show on display
 .def displayCharPos 	= R17	; Position of char on display
@@ -27,12 +27,12 @@
 .def gameResult 	= R24	; The result of the game
 .def tmp 		= R25
 
-.org 0x0000
+.org 0
 	RJMP	start
 
 .org 0x100
 	; 0 HARD, 1 EASY
-	gamemode: .db 0
+	gamemode: .db 1			; Read-only constant definition
 
 ;---------------------------------
 ; Main logic
