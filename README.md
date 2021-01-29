@@ -28,25 +28,25 @@
 2) Add forbes.asm as source file
 3) Mark forbes.asm as entry file
 4) Assemble project
-5) Now you should see chars.inc, print.inc and m169def.inc in included files
+5) Now you should see chars.inc, print.inc and m169def.inc in an included files folder
 6) Run and **enjoy** the game!
 
 ## How to Play 🕹️
 
 1) [Build and run](#build-) the game
-2) You should see "START" on display
-3) Press center button on joystick to start a new game
-4) There are three reels. The main task of the game is to stop all three reels with the same picture on it (_Note_: picture on reel is generated "randomly" from list of 0-9 and A-F)
-5) Press center button on joystick to stop a reel
+2) You'll see "START" on the display of your kit
+3) Push center button on joystick to start a new game
+4) There are three reels. The main task of the game is to stop all three reels with the same picture on them (_Note_: picture on reel is generated "randomly" from list of 0-9 and A-F)
+5) Push center button on joystick to stop a reel
 6) When one reel stops, the next one starts to spin
-7) At the end of the game you should see "WINNER" if all reels have the same picture, otherwise "LOOSER"
-8) Wait until your game result blinks and press center button to start a new game
+7) At the end of the game you'll see "WINNER" if all reels have the same picture, otherwise "LOOSER"
+8) Wait until your game result blinks and push center button to start a new game
 
 ## Credits ✍
 
 #### Related
 
-* Special thanks to [ultimatearm](https://www.flaticon.com/authors/ultimatearm) for app icon!
+* Special thanks to [ultimatearm](https://www.flaticon.com/authors/ultimatearm) for icon!
 
 #### Author
 

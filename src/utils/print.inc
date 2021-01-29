@@ -25,8 +25,9 @@ displayInit:
 ;---------------------------------
 ; Show char on display
 ;
-; R16 char, R17 position on display
-; Stores and refreshes the registers
+; R16 - char, R17 - position on display
+; Function stores and refreshes
+; the registers
 showChar:
 	PUSH	R0
 	PUSH	R1
@@ -50,7 +51,8 @@ showChar:
 ;---------------------------------
 ; Undefined symbol
 ;
-; Activates all segments on display
+; Function activates all segments
+; on display
 undef:
 	LDI	R16, '`'
 	JMP	prep
@@ -58,12 +60,13 @@ undef:
 ;---------------------------------
 ; Space symbol " "
 ;
-; Using undefined comma instead of space symbol
+; Using undefined comma instead
+; of space symbol
 space:
 	LDI	R16, ','
 
 ;---------------------------------
-; Prepare for showing
+; Prepare for displaying a symbol
 prep:
 	SUBI	R16, '*'			; Convert symbol to char table index
 	LSL	R16

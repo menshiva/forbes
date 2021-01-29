@@ -16,7 +16,7 @@
 .org 0x1000
 .include "utils\print.inc"
 
-.def displayChar 	= R16	; Stores char to show on display
+.def displayChar 	= R16	; Char to show on display
 .def displayCharPos 	= R17	; Position of char on display
 .def seed 		= R18	; Seed for random function
 .def randNum 		= R19	; Random number
@@ -59,8 +59,8 @@ start:
 	LDI	buttonLocker, 1
 
 ;---------------------------------
-; Waits for user to press button
-; to start a new game
+; Waits for user to push center
+; button to start a new game
 start_loop:
 	INC	seed
 	; Read center button status
@@ -95,8 +95,8 @@ roll_loop:
 	MOV 	displayChar, randNum
 	CALL 	showChar
 
-	; Check if button pressed and wait for time
-	; Time is longer when gamemode is 1
+	; Check if button is pressed and wait for delay
+	; Delay is longer when gamemode is 1
 	LDI 	R26, 0x10
 	CPI 	mode, 1
 	BRNE 	wait
@@ -107,7 +107,7 @@ wait:
 	CPI 	pressedButton, 1
 	; If center button is pressed
 	BRNE 	centerBtnNotPressed
-	; If buttonLocker == 0 then buttonLocker = 1 and displayCharPos -= 1 to set next reel
+	; If buttonLocker == 0 then buttonLocker = 1 and displayCharPos -= 1 to set the next reel
 	; Else continue loop
 	CPI 	buttonLocker, 0
 	BRNE 	endCheckButton
@@ -145,7 +145,8 @@ endCheckButton:
 ;---------------------------------
 ; Print game result
 ;
-; If gameResult == 1 then blink_winner() else blink_loser()
+; If gameResult == 1 then blink_winner()
+; else blink_loser()
 printResult:
 	CPI 	gameResult, 1
 	BREQ 	win
@@ -155,7 +156,7 @@ win:
 	CALL 	blink_winner
 
 ;---------------------------------
-; Waits for user to press button
+; Waits for user to push center button
 ; to accept game result
 final_loop:
 	; Read center button status
@@ -298,8 +299,7 @@ print_loser:
 	RET
 
 ;---------------------------------
-; Print reels initial values
-; (0 0 0)
+; Print reels initial values (0 0 0)
 forbes_diplay_init:
 	LDI 	displayCharPos, 4
 	LDI 	displayChar, '0'
@@ -346,8 +346,7 @@ init_joy:
 	RET
 
 ;---------------------------------
-; Store joystick pressed button
-; in R20
+; Store joystick pressed button in R20
 read_joy:
 	PUSH 	R16
 	PUSH 	R17
