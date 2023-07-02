@@ -199,7 +199,7 @@ normalizeRandomNumber:
 ; Convert randNum to char
 finishNormalize:
 	SUBI randNum, -'0'
-	; If randNum is < ('9' + 1), then goto first_skip.
+	; If randNum is < ('9' + 1), then goto endConvertingChar.
 	; Else randNum += ('A' - ('9' + 1)) (to get 'A', 'B', 'C', etc.)
 	CPI randNum, 58
 	BRLO endConvertingChar
